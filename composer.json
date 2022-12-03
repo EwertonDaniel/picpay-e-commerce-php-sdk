@@ -7,7 +7,7 @@
     "wallet",
     "e-commerce"
   ],
-  "homepage": "https://github.com/EwertonDaniel/PicPay",
+  "homepage": "https://github.com/EwertonDaniel/picpay-e-commerce-php-sdk",
   "require": {
     "php": ">=8.1",
     "guzzlehttp/guzzle": "^7.0.1",
