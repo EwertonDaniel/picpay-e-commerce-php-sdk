@@ -1,6 +1,8 @@
-[![Twitter](https://badgen.net/badge/icon/twitter?icon=twitter&label)](https://twitter.com/dsrewerton)
+[![Generic badge](https://img.shields.io/github/last-commit/ewertondaniel/picpay-e-commerce-php-sdk)](https://github.com/EwertonDaniel/picpay-e-commerce-php-sdk)
 [![Generic badge](https://img.shields.io/badge/stable-v1.0.4-blue.svg)](https://github.com/EwertonDaniel/PicPay-E-Commerce)
-[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/ewertondaniel/picpay-e-commerce-php-sdk)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+[![Generic badge](https://img.shields.io/packagist/dm/ewertondaniel/picpay-e-commerce?color=blue)](https://packagist.org/packages/ewertondaniel/picpay-e-commerce)
+[![Twitter](https://img.shields.io/twitter/follow/dsrewerton?style=social)](https://twitter.com/dsrewerton)
 
 
 # 💚 PicPay E-Commerce API Integration 🇧🇷
