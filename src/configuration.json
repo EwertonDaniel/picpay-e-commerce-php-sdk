@@ -1,0 +1,25 @@
+{
+  "API": {
+    "name": "Ewerton Daniel - PicPay PHP SDK",
+    "version": "v1.0.1"
+  },
+  "ROOT_URL": "https://appws.picpay.com/ecommerce/public",
+  "ENDPOINTS": {
+    "test": {
+      "uri": "/test",
+      "method": "get"
+    },
+    "payments": {
+      "uri": "/payments",
+      "method": "post"
+    },
+    "status": {
+      "uri": "/payments/{referenceId}/status",
+      "method": "get"
+    },
+    "cancel": {
+      "uri": "/payments/{referenceId}/cancellations",
+      "method": "get"
+    }
+  }
+}
