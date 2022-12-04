@@ -1,6 +1,6 @@
 {
   "name": "ewertondaniel/picpay-e-commerce-php-sdk",
-  "version": "v1.0.3",
+  "version": "v1.0.5",
   "description": "PicPay E-Commerce PHP SDK: This PHP library provides developers with a simple set of bindings to help you integrate PicPay E-Commerce API to a website and start receiving payments.",
   "keywords": [
     "picpay",
