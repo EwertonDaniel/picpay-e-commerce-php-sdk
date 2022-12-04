@@ -28,7 +28,8 @@ have one already.
 
 Download [Composer](https://getcomposer.org/) if not already installed
 
-On your project directory run on the command line `"composer require ewertondaniel/picpay-e-commerce"` for `PHP 8.1`;
+On your project directory run on the command line `"composer require ewertondaniel/picpay-e-commerce-php-sdk"`
+for `PHP 8.1`;
 
 That's it! **PicPay E-Commerce** has been successfully installed!
 
