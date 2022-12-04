@@ -1,12 +1,13 @@
 <?php
 
-namespace EwertonDaniel\PicPay\Tests;
-
 use EwertonDaniel\PicPay\Configuration;
+use EwertonDaniel\PicPay\Traits\DisplayColor;
 use PHPUnit\Framework\TestCase;
 
 class ConfigurationTest extends TestCase
 {
+    use DisplayColor;
+
     protected Configuration $configuration;
 
     function setUp(): void
@@ -18,7 +19,7 @@ class ConfigurationTest extends TestCase
     {
         $attribute = $this->configuration->getSdkVersion();
         if ($attribute) {
-            print DisplayColor::success($attribute, true);
+            print $this->information($attribute, true);
         }
         $this->assertNotNull($attribute);
     }
@@ -27,7 +28,8 @@ class ConfigurationTest extends TestCase
     {
         $attribute = $this->configuration->getUrl();
         if ($attribute) {
-            print DisplayColor::success($attribute);
+            print $this->success("URL OK");
+            print $this->information($attribute, true);
         }
         $this->assertNotNull($attribute);
     }
@@ -35,8 +37,9 @@ class ConfigurationTest extends TestCase
     function testIfEndpointsInitiated(): void
     {
         $attribute = $this->configuration->getEndpoints();
-        if ($attribute) {
-            print DisplayColor::success('success', true);
+        if (!empty($attribute)) {
+            print $this->success("ENDPOINTS OK");
+            print $this->information(json_encode($attribute), true);
         }
         $this->assertIsArray($attribute);
     }
@@ -44,8 +47,9 @@ class ConfigurationTest extends TestCase
     function testIfTestEndpointInitiated(): void
     {
         $attribute = $this->configuration->getEndpoint('test');
-        if ($attribute) {
-            print DisplayColor::success('success', true);
+        if (!empty($attribute)) {
+            print $this->success("ENDPOINT OK");
+            print $this->information(json_encode($attribute), true);
         }
         $this->assertIsArray($attribute);
     }

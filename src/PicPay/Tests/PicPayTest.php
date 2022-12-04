@@ -1,17 +1,17 @@
 <?php
 
-namespace EwertonDaniel\PicPay\Tests;
-
 use EwertonDaniel\PicPay\Exceptions\CustomerException;
 use EwertonDaniel\PicPay\Exceptions\PaymentException;
 use EwertonDaniel\PicPay\PicPay;
-use Exception;
+use EwertonDaniel\PicPay\Traits\DisplayColor;
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\TestCase;
 
 class PicPayTest extends TestCase
 {
-    const PICPAY_TOKEN = 'x_picpay_token';
+    use  DisplayColor;
+
+    const PICPAY_TOKEN = '2c6485b8-a283-4bff-9304-687f082281de';
     private PicPay $picpay;
 
     /**
@@ -38,7 +38,10 @@ class PicPayTest extends TestCase
     function testToken(): void
     {
         $token = $this->picpay->getPicpayToken();
-        if ($token) print DisplayColor::success($token, true);
+        if ($token) {
+            print $this->success('PICPAY OK');
+            print $this->information($token, true);
+        }
         $this->assertNotNull($token);
     }
 
@@ -57,6 +60,11 @@ class PicPayTest extends TestCase
     function testPayCharge(): void
     {
         $charge = $this->picpay->getCharge();
+        if (!empty($charge)) {
+            print $this->success('CHARGE OK');
+            print_r($charge);
+            print "\n\n";
+        }
         $this->assertIsArray($charge);
     }
 
@@ -66,8 +74,11 @@ class PicPayTest extends TestCase
     function testChargeToString(): void
     {
         $charge = $this->picpay->getChargeToString();
-        if ($charge) print DisplayColor::success($charge, true);
-        $this->assertIsString($charge);
+        if ($charge) {
+            print $this->success('CHARGE TO STRING OK');
+            print $this->information($charge, true);
+        }
+        $this->assertJson($charge);
     }
 
     /**
@@ -77,9 +88,12 @@ class PicPayTest extends TestCase
     {
         $response = $this->picpay
             ->setSoftDescriptor('Item Description')->pay();
-        if ($response) {
+        if ($response['success']) {
+            print $this->success('ORDER SUCCESSFULLY CREATED');
+            print $this->information($response['referenceId'], true);
             $this->picpay->order($response['referenceId']);
         }
+
         $this->assertIsArray($response);
         $this->testStatusInformation();
         $this->testStatusCancellation();
@@ -92,6 +106,10 @@ class PicPayTest extends TestCase
     private function testStatusInformation(): void
     {
         $order = $this->picpay->order()->status();
+        if (isset($order['status'])) {
+            print $this->success('STATUS RESPONSE RECEIVED SUCCESSFULLY');
+            print $this->information($order['status'], true);
+        }
         $this->assertEquals('created', $order['status']);
     }
 
@@ -102,6 +120,10 @@ class PicPayTest extends TestCase
     private function testStatusCancellation(): void
     {
         $order = $this->picpay->order()->cancel();
+        if (isset($order['status'])) {
+            print $this->success('SUCCESSFULLY CANCELED');
+            print $this->information($order['status'], true);
+        }
         $this->assertEquals('cancelled', $order['status']);
     }
 }

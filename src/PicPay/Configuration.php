@@ -2,6 +2,8 @@
 
 namespace EwertonDaniel\PicPay;
 
+use Exception;
+
 class Configuration
 {
     protected string $url;
@@ -11,7 +13,7 @@ class Configuration
     private string $configurationFile = __DIR__ . '/configuration.json';
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct()
     {
@@ -19,7 +21,7 @@ class Configuration
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function __init__(): void
     {
@@ -40,14 +42,14 @@ class Configuration
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function setConfigurations(): void
     {
         $file = file_get_contents($this->configurationFile);
         $configuration = json_decode($file, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new \Exception("Error in load configuration.json file");
+            throw new Exception("Error in load configuration.json file");
         }
         $this->configuration = $configuration;
     }

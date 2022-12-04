@@ -1,15 +1,16 @@
 <?php
 
-namespace EwertonDaniel\PicPay\Tests;
-
 use EwertonDaniel\PicPay\Customer;
 use EwertonDaniel\PicPay\Exceptions\CpfValidationException;
 use EwertonDaniel\PicPay\Exceptions\CustomerException;
 use EwertonDaniel\PicPay\Exceptions\EmailValidationException;
+use EwertonDaniel\PicPay\Traits\DisplayColor;
 use PHPUnit\Framework\TestCase;
 
 class CustomerTest extends TestCase
 {
+    use DisplayColor;
+
     protected Customer $customer;
 
     /**
@@ -32,8 +33,8 @@ class CustomerTest extends TestCase
     {
         $this->customer->setDocument('96323751062');
         $attribute = $this->customer->getBuyer();
-        if ($attribute) {
-            print DisplayColor::success('success');
+        if (!empty($attribute)) {
+            print $this->success('BUYER OK', true);
         }
         $this->assertIsArray($attribute);
     }
@@ -44,7 +45,12 @@ class CustomerTest extends TestCase
     function testValidCpf(): void
     {
         $this->customer->setDocument('96323751062');
-        $this->assertEquals('963.237.510-62', $this->customer->getDocument());
+        $document = $this->customer->getDocument();
+        if ($document) {
+            print $this->success('DOCUMENT OK');
+            print $this->information($document, true);
+        }
+        $this->assertEquals('963.237.510-62', $document);
     }
 
     /**
