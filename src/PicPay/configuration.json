@@ -1,7 +1,7 @@
 {
   "API": {
-    "name": "Ewerton Daniel - PicPay PHP SDK",
-    "version": "v1.0.1"
+    "name": "Ewerton Daniel/PicPay E-Commerce PHP SDK",
+    "version": "v1.0.7"
   },
   "ROOT_URL": "https://appws.picpay.com/ecommerce/public",
   "ENDPOINTS": {
