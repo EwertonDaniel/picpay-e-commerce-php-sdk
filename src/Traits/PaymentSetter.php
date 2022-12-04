@@ -122,7 +122,7 @@ trait PaymentSetter
     public function setExpirationDate(string $expires_at): static
     {
         $expires_at = "$expires_at 00:00:01";
-        $this->expiresAt = date('Y-m-d H:i:sP', $expires_at);
+        $this->expiresAt = date('Y-m-d\TH:i:sO', strtotime($expires_at));
         return $this;
     }
 
