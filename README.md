@@ -112,8 +112,8 @@ use EwertonDaniel\PicPay\Order;
 
        $order = new Order('x_picpay_token','reference_id');
        $response = $order->status();
-       $status =  $response['body']['status'];
-            
+       $status =  $response['status'];
+
 ```
 
 #### Possibles status response when request Order Status:
@@ -135,8 +135,8 @@ use EwertonDaniel\PicPay\Order;
 
        $order = new Order('x_picpay_token','reference_id');
        $response = $order->cancel();
-       $status = $response['body']['status'];
-            
+       $status = $response['status'];
+
 ```
 
 #### Possibles cancellation status response:
