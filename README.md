@@ -61,8 +61,8 @@ use EwertonDaniel\PicPay\Customer;
 
 use EwertonDaniel\PicPay\PicPay;
 
-          $payment = new PicPay('x_picpay_token');
-          $payment
+        $payment = new PicPay('x_picpay_token');
+        $payment
             ->setCustomer([
                 'first_name' => 'Din',
                 'last_name' => 'Djarin',
@@ -81,8 +81,8 @@ use EwertonDaniel\PicPay\PicPay;
 
 use EwertonDaniel\PicPay\PicPay;
 
-          $payment = new PicPay('x_picpay_token');
-          $payment
+        $payment = new PicPay('x_picpay_token');
+        $payment
             ->setCustomer([
                 'first_name' => 'Din',
                 'last_name' => 'Djarin',
@@ -110,9 +110,9 @@ use EwertonDaniel\PicPay\PicPay;
 
 use EwertonDaniel\PicPay\Order;
 
-       $order = new Order('x_picpay_token','reference_id');
-       $response = $order->status();
-       $status =  $response['status'];
+        $order = new Order('x_picpay_token','reference_id');
+        $response = $order->status();
+        $status =  $response['status'];
 
 ```
 
