@@ -95,7 +95,7 @@ use EwertonDaniel\PicPay\PicPay;
             ->setCallbackUrl('https://my-website.com/notification')  // REQUIRED, Where PicPay will return with POST notification;
             ->setReturnUrl('https://my-website.com/order/MY-ID-0002')  // Optional, (default:null) where customer will be redirected from PicPay Payment Page;
             ->setExpirationDate('2020-09-20') // Optional, (default:null) Format Y-m-d (yyyy-mm-dd);
-            ->setSoftDescriptor('Skywalker light-saber') // Optional, (default:null) Description to customer, or an item description;
+            ->setSoftDescriptor('Skywalker light-saber') // Optional, (default:null) The soft descriptor is the dynamic text used to construct the statement descriptor that appears on a payer's card statement;
             ->setPurchaseMode('online') // Optional, (default: online, available options [online, in-store]);
             ->setChannel('channel') // Optional, (default:null) If you have another store, take a look in official documentation;
             ->setAutoCapture(true) // Optional, (default:true) Key that will define that this charge will be of the late capture type;
